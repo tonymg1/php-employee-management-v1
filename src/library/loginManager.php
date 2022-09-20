@@ -1,4 +1,5 @@
 <?php
+$error = "";
 
 /* This file will contain the necessary functions so that the user can log in, 
 save their session data and log out. */
@@ -24,8 +25,18 @@ function login() {
                 header("Location: ../dashboard.php");
             }
         } else {
+        
+        
             header("Location: ../../ini.php");
             // disparar alerta
+           ?> 
+           <script>
+            console.log("estoy")
+            
+           </script>
+            <?php
         }
     }
+    
+   
 }

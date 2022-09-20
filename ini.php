@@ -1,5 +1,7 @@
 <!-- TODO Application entry point. Login view -->
-
+<?php 
+           require ("src/library/loginManager.php");
+           ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +14,12 @@
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <!--Bootstrap !-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <style>
         .bd-placeholder-img {
@@ -71,7 +79,7 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form method="POST" action="./src/library/loginController.php">
+        <form method="POST" action="./src/library/loginController.php" class="form-signin"> 
             <img class="mb-4" src="./assets/brand/working-vector.ico" alt="" width="72" height="57" />
 
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
@@ -85,12 +93,19 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-password" />
                 <label for="floatingPassword">Password</label>
             </div>
+            <div id="alertNO" class="alert alert-danger" role="alert" style="display:none">Error</div>
+           <?php 
+           
+           echo $error;
+           ?>
+            
 
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me" /> Remember me
                 </label>
             </div>
+           
 
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
 
@@ -98,5 +113,8 @@
         </form>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </html>
