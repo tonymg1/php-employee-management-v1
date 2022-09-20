@@ -94,10 +94,8 @@
                 <label for="floatingPassword">Password</label>
             </div>
             <div id="alertNO" class="alert alert-danger" role="alert" style="display:none">Error</div>
-           <?php 
-           
-           echo $error;
-           ?>
+         <?php  ?>
+           <script>console.log("<?php $hola = "hola"; echo $hola ?>")</script>
             
 
             <div class="checkbox mb-3">
