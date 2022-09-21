@@ -25,6 +25,9 @@ function renderAllEmployees(data){
         console.log(employee.name);
 
         let tableRow = document.createElement("tr");
+        tableRow.setAttribute("onclick", "sendToEmployee()")
+       
+    
         tableRow.innerHTML = `
             <th scope="row">${employee.id}</th>
             <td>${employee.name}</td>
@@ -35,10 +38,15 @@ function renderAllEmployees(data){
             <td>${employee.state}</td>
             <td>${employee.postalCode}</td>
             <td>${employee.phoneNumber}</td>
-            <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
-        `
+            <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>`
+        
         tableBody.appendChild(tableRow);
     });
+}
+
+function sendToEmployee(){
+    // console.log("hola, has hecho click")
+    window.location.href = "employee.php";
 }
 
 
