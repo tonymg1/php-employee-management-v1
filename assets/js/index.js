@@ -7,11 +7,11 @@ function loginError() {
     alert.setAttribute("role", "alert");
     alert.innerHTML = "Incorrect credentials";
 
-    // const alert = `
-    //     <div class="alert alert-danger" role="alert">
-    //         Incorrect credentials
-    //     </div>
-    // `
+    const alert = `
+        <div class="alert alert-danger" role="alert">
+            Incorrect credentials
+        </div>
+    `
     
     form.appendChild(alert);
 }

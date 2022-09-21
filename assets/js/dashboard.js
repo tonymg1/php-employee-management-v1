@@ -6,7 +6,9 @@
 // loginForm.addEventListener("submit", sendDataToPHP);
 // el dashboard tendrá varios eventListeners (create, read, update, delete).
 
+
 loadAllEmployees();
+
 
 function loadAllEmployees() {
     fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
@@ -17,19 +19,18 @@ function loadAllEmployees() {
 }
 
 function renderAllEmployees(data){
-    console.log(data);
+    // console.log(data);
 
     const tableBody = document.querySelector("tbody");
 
     data.forEach((employee) => {
-        console.log(employee.name);
+        // console.log(employee.name);
 
         let tableRow = document.createElement("tr");
-        tableRow.setAttribute("onclick", "sendToEmployee()")
-       
+        tableRow.setAttribute("onclick", 'sendToEmployee("'+employee.id+'")')
     
         tableRow.innerHTML = `
-            <th scope="row">${employee.id}</th>
+            <th>${employee.id}</th>
             <td>${employee.name}</td>
             <td>${employee.email}</td>
             <td>${employee.age}</td>
@@ -44,10 +45,63 @@ function renderAllEmployees(data){
     });
 }
 
-function sendToEmployee(){
-    // console.log("hola, has hecho click")
-    window.location.href = "employee.php";
-}
+// let ejemplo = document.getElementById('validationCustom01')
+
+// ejemplo.value =  sendToEmployee(userId);
+
+function sendToEmployee(userId){
+    window.location.href = 'employee.php?' + userId + '';
+}  
+
+// ejemplo();
+    // console.log("userId");
+    // fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         renderAllEmployees(data);
+    //         return renderAllEmployees(data)
+    //     });
+    // const printTheData = document.querySelector(".form-control");
+    
+    // data.forEach((employee) => {
+    //     console.log(employee.name);
+        
+    //     //let printData = document.createElement("tr");
+    //     printTheData.setAttribute("onclick", 'sendToEmployee("'+employee.name+'")')
+        
+    //     printTheData.value.innerHTML = "hola"
+    // });
+// }
+// sendToEmployee(userId) ;
+
+
+
+
+
+
+
+// function renderAllEmployees(data){
+//     console.log(data);
+
+//     const tableBody = document.querySelector("tbody");
+
+//     data.forEach((employee) => {
+//         console.log(employee.name);
+
+//         let tableRow = document.createElement("tr");
+//         tableRow.setAttribute("onclick", "sendToEmployee()")
+
+//     })
+// }
+
+// const myReturn = document.getElementById('button');
+// myReturn.addEventListener('click', "goBack()");
+
+// function goBack(){
+//     window.location.href = "dashboard.php";
+    // console.log('hola');
+
+
 
 
 // function sendDataToPHP(e) {

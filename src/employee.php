@@ -1,4 +1,10 @@
 <!-- TODO Employee view -->
+<?php
+
+session_start();
+
+require_once "./library/employeeManager.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
    <!-- JavaScript de Employee -->
-   <script src="../assets/js/employee.js" defer></script>
+    <script src="../assets/js/dashboard.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <title>Employee</title>
 </head>
@@ -21,14 +27,14 @@
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+            <input type="text" class="form-control" id="validationCustom01" value="" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-4">
             <label for="validationCustom02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+            <input type="text" class="form-control" id="validationCustom02" value="" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -37,7 +43,7 @@
             <label for="validationCustomUsername" class="form-label">Email address</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" value="" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                     Please choose a username.
                 </div>
@@ -55,7 +61,7 @@
         </div>
         <div class="col-md-6">
             <label for="validationCustom03" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <input type="text" class="form-control" value="" id="validationCustom03" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
@@ -63,49 +69,42 @@
 
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Street Address</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
-            <div class="invalid-feedback">
-                Please provide a valid zip.
-            </div>
-        </div>
-        <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Street Address</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" value="" id="validationCustom05" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">State</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" value="" id="validationCustom05" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Age</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" value="" id="validationCustom05" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Postal Code</label>
-            <input type="number" class="form-control" id="validationCustom05" required>
+            <input type="number" class="form-control" value="" id="validationCustom05" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Phone Number</label>
-            <input type="number" class="form-control" id="validationCustom05" required>
+            <input type="number" class="form-control "value="" id="validationCustom05" value="hola" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
         <div class="col-12">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <input class="form-check-input" type="checkbox"  value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">
                     Agree to terms and conditions
                 </label>
@@ -115,11 +114,22 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <input class="btn btn-primary" type="button" value="Submit"/>
         </div>
+        <!-- <div class="col-12">
+            <input class="btn btn-primary" type="submit" value="Return" name="Return"/>
+        </div> -->
         <div class="col-12">
-            <button class="btn btn-primary" type="button">Return</button>
+            <input class="btn btn-primary" type="button" value="Return" onclick="history.go(-1)">
+            <!-- <script> function GPS(msg) {
+                this.send_msg = function() {
+                window.alert(msg);
+                }
+            }
+                var lost = new GPS("You are lost!");
+                lost.send_msg();</script> -->
         </div>
+
     </form>
 
     <?php require_once "../assets/html/footer.html" ?>
