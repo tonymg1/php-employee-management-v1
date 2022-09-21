@@ -25,6 +25,7 @@ function renderAllEmployees(data){
         console.log(employee.name);
 
         let tableRow = document.createElement("tr");
+        tableRow.setAttribute("onclick",'setToEmployee("'+employee.id+'")')
         tableRow.innerHTML = `
             <th scope="row">${employee.id}</th>
             <td>${employee.name}</td>
@@ -41,7 +42,9 @@ function renderAllEmployees(data){
     });
 }
 
-
+function setToEmployee(userId){
+    window.location.href = 'employee.php?'+userId+'';
+}
 // function sendDataToPHP(e) {
 //     e.preventDefault();
 

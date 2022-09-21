@@ -1,11 +1,5 @@
 <?php
 
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
 
 
 // session_start();
@@ -14,6 +8,21 @@ function loadAllEmployees(){
     $employeesJson = file_get_contents('../../resources/employees.json');
     return $employeesJson;
 }
+
+if(isset($userId)){
+    $json_employees = file_get_contents('../../resources/employees.json');
+$employees = json_decode($json_employees, true);
+
+
+foreach($employees as $employee){
+    if($userId == $employee['id']){
+        $user = $employee;
+        break;
+    }
+}
+
+}
+
 
 
 // function employeeDashboard() {

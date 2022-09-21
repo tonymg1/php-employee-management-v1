@@ -26,21 +26,8 @@ function login() {
                 header("Location: ../dashboard.php");
             }
         } else {
-<<<<<<< HEAD
-        
-        
-            header("Location: ../../ini.php");
-            // disparar alerta
-           ?> 
-           <script>
-            console.log("estoy")
-            
-           </script>
-            <?php
-=======
             header("Location: ../../loginController.php?action=loginError");
             // TODO disparar alerta
->>>>>>> develop
         }
     }
     

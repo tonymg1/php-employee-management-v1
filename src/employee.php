@@ -1,4 +1,7 @@
 <!-- TODO Employee view -->
+<?php
+require"./library/employeeController.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 

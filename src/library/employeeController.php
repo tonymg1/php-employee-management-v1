@@ -1,6 +1,16 @@
 <?php
 
-require_once "./employeeManager.php"; // la ruta tiene que iniciar en dashboard.
+$user = [];
+//como obtener el get en php
+$userId = $_SERVER['QUERY_STRING'];
+
+require_once "employeeManager.php"; // la ruta tiene que iniciar en dashboard.
+
+
+
+
+
+
 
 if (isset($_GET["action"]) && $_GET["action"] == "listEmployees") {
     // employeeDashboard();
