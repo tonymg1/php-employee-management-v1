@@ -15,11 +15,15 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
 
+<<<<<<< HEAD
     <!--Bootstrap !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+=======
+    <script src="./assets/js/index.js"></script>
+>>>>>>> develop
 
     <style>
         .bd-placeholder-img {
@@ -74,29 +78,36 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
-
 </head>
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
+<<<<<<< HEAD
         <form method="POST" action="./src/library/loginController.php" class="form-signin"> 
+=======
+        <form id="login-form" method="post" action="./src/library/loginController.php?action=login">
+>>>>>>> develop
             <img class="mb-4" src="./assets/brand/working-vector.ico" alt="" width="72" height="57" />
 
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user-email" />
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user-email" required />
                 <label for="floatingInput">Email address</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-password" />
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-password" required />
                 <label for="floatingPassword">Password</label>
             </div>
             <div id="alertNO" class="alert alert-danger" role="alert" style="display:none">Error</div>
          <?php  ?>
            <script>console.log("<?php $hola = "hola"; echo $hola ?>")</script>
             
+
+            <!-- <div class="alert alert-danger" role="alert">
+                Incorrect credentials
+            </div> -->
 
             <div class="checkbox mb-3">
                 <label>
@@ -106,6 +117,7 @@
            
 
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
+            <!-- <button type="submit">Login</button> -->
 
             <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>
