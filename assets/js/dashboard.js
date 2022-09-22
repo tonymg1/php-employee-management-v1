@@ -6,6 +6,15 @@
 // loginForm.addEventListener("submit", sendDataToPHP);
 // el dashboard tendrá varios eventListeners (create, read, update, delete).
 
+var URLactual = window.location.href;
+
+if(URLactual == "http://localhost/proyectosAssembler/4/php-employee-management-v1/src/dashboard.php"){
+    var dash = document.getElementById('dash');
+    dash.style.fontWeight = "bold";
+}else {
+    var emp = document.getElementById('emp');
+    emp.style.fontWeight = "bold";
+}
 
 loadAllEmployees();
 
@@ -50,7 +59,7 @@ function renderAllEmployees(data){
 // ejemplo.value =  sendToEmployee(userId);
 
 function sendToEmployee(userId){
-    window.location.href = 'employee.php?' + userId + '';
+    window.location.href = './employee.php?' + userId + '';
 }  
 
 // ejemplo();

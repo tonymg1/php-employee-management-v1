@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
     <?php require_once "../assets/html/header.html" ?>
     
     <table class="table table-striped table-hover">
