@@ -50,7 +50,7 @@ function renderAllEmployees(data){
 // ejemplo.value =  sendToEmployee(userId);
 
 function sendToEmployee(userId){
-    window.location.href = 'employee.php?' + userId + '';
+    window.location.href = 'borrarhtml.php?' + userId + '';
 }  
 
 // ejemplo();

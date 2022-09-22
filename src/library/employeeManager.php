@@ -14,6 +14,16 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
+function leer(){
+    $leer = file_get_contents('../../resources/employees.json');
+    $leyendo = json_decode($leer, true);
+
+    foreach ($leyendo as $product) {
+        print_r($product);
+    }
+}
+
+
 // require_once "./employeeController.php";
 
 // $datos = [];

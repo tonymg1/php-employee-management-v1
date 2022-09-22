@@ -1,48 +1,33 @@
-// // console.log('holaaaaaaaaaa');
-// function loadAllEmployees() {
-//     fetch("./library/employeeController.php?action=", { method: "GET" })
-//         .then(response => response.json())
-//         .then(data => {
-//             renderAllEmployees(data);
-//         });
-// }
+console.log('holaaaaaaaaaa');
 
+leer();
+
+
+function leer() {
+    fetch("./library/employeeController.php?action=lista", { method: "GET" })
+        .then(response => response.json())
+        .then(data => {
+            renderAllEmployees(data);
+        });
+}
+
+function renderAllEmployees(data){
+    // console.log(data);
+
+    const inputBody = document.querySelector("tr");
+
+    data.forEach((employee) => {
+        // console.log(employee.name);
+
+        // let inputRow = document.createElement("tr");
+        // inputRow.setAttribute("onclick", 'sendToEmployee("'+employee.id+'")')
+    
+        inputRow.value = "hola";
+        tableBody.appendChild(tableRow);
+    });
+}
 
 // loadAllEmployees();
 
-// function loadAllEmployees() {
-//     fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
-//         .then(response => response.json())
-//         .then(data => {
-//             renderAllEmployees(data);
-//         });
-// }
-
-// function renderAllEmployees(data){
-    
-
-//     const idJson = document.querySelector("validationCustom02");
-
-//     data.forEach((employee) => {
-//         console.log(employee.age);
-//         console.log("sdfsdf");
-//         idJson.innerHTML = `
-//             <th>${employee.id}</th>
-//             <input.value>${employee.name}</input.value>
-//             <input>${employee.email}</input>
-//             <input>${employee.age}</input>
-//             <input>${employee.streetAddress}</input>
-//             <input>${employee.city}
-//             <input>${employee.state}
-//             <input>${employee.postalCode}
-//             <input>${employee.phoneNumber}`
-        
-//         tableBody.appendChild(idJson);
-//     });
-// }
-
-// function sendToEmployee(){
-    
 //     window.location.href = "employee.php";
 
-// }

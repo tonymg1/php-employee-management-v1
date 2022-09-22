@@ -8,6 +8,11 @@ if (isset($_GET["action"]) && $_GET["action"] == "listEmployees") {
 }
 
 
+if (isset($_GET["action"]) && $_GET["action"] == "lista") {
+    
+    echo leer(); 
+}
+
 // function ejemplo(){
 // if (isset($userId)){
 //     $employeesJ = file_get_contents('../../resources/employees.json');

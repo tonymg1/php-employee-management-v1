@@ -11,6 +11,7 @@
     <!-- JavaScript Bundle with Popper -->
     <!-- JavaScript de Employee -->
     <script src="../assets/js/dashboard.js" defer></script>
+    <script src="../assets/js/employee.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <title>Employee</title>
 </head>
@@ -78,7 +79,7 @@
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Age</label>
-            <input type="text" class="form-control" value="" id="validationCustom08" required>
+            <input type="text" class="form-control" value="edad" id="validationCustom08" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
