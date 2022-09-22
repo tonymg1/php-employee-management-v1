@@ -1,5 +1,5 @@
 <?php
-
+echo "hola";
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -8,20 +8,27 @@
  */
 
 // session_start();
+// require_once "employeeController.php";
 
 function loadAllEmployees(){
     $employeesJson = file_get_contents('../../resources/employees.json');
     return $employeesJson;
 }
 
-function leer(){
-    $leer = file_get_contents('../../resources/employees.json');
-    $leyendo = json_decode($leer, true);
+// function obtenerInfo(){
+//     $obtenerJson = file_get_contents('../resources/employees.json');
+//     $employees = json_decode($obtenerJson, true);
+//     // $user = [];
+//     // $userId = $_SERVER['QUERY_STRING'];
 
-    foreach ($leyendo as $product) {
-        print_r($product);
-    }
-}
+//     foreach ($employees as $employee) {
+//         // print_r($employee);
+//         if($userId == $employee['id']){
+//             $user = $employee;
+//             break;
+//         }
+//     }echo $userId;
+//     }
 
 
 // require_once "./employeeController.php";
