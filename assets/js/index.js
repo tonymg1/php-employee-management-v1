@@ -7,7 +7,7 @@ function loginError() {
     alert.setAttribute("role", "alert");
     alert.innerHTML = "Incorrect credentials";
 
-    const alert = `
+    const alerta = `
         <div class="alert alert-danger" role="alert">
             Incorrect credentials
         </div>

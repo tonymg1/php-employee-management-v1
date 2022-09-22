@@ -14,10 +14,10 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
-require_once "./employeeController.php";
+// require_once "./employeeController.php";
 
-$datos = [];
-$userId = $_SERVER['QUERY_STRING']
+// $datos = [];
+// $userId = $_SERVER['QUERY_STRING']
 
 
 // function employeeDashboard() {
