@@ -1,5 +1,5 @@
 <?php
-echo "hola";
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -15,26 +15,24 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
-// function obtenerInfo(){
-//     $obtenerJson = file_get_contents('../resources/employees.json');
-//     $employees = json_decode($obtenerJson, true);
-//     // $user = [];
-//     // $userId = $_SERVER['QUERY_STRING'];
+function obtenerInfo(){
+    $obtenerJson = file_get_contents('../resources/employees.json');
+    $employees = json_decode($obtenerJson, true);
+    $user = [];
+    $userId = $_SERVER['QUERY_STRING'];
 
-//     foreach ($employees as $employee) {
-//         // print_r($employee);
-//         if($userId == $employee['id']){
-//             $user = $employee;
-//             break;
-//         }
-//     }echo $userId;
-//     }
+    foreach ($employees as $employee) {
+        // print_r($employee);
+        if($userId == $employee['id']){
+            $user = $employee;
+            break;
+        }
+    }echo $userId;
+    }
 
 
 // require_once "./employeeController.php";
 
-// $datos = [];
-// $userId = $_SERVER['QUERY_STRING']
 
 
 // function employeeDashboard() {

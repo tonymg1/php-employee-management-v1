@@ -11,7 +11,7 @@ loadAllEmployees();
 
 
 function loadAllEmployees() {
-    fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
+    fetch("library/employeeController.php?action=listEmployees", { method: "GET" })
         .then(response => response.json())
         .then(data => {
             renderAllEmployees(data);

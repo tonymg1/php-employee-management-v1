@@ -8,10 +8,10 @@ if (isset($_GET["action"]) && $_GET["action"] == "listEmployees") {
 }
 
 
-// if (isset($_GET["action"]) && $_GET["action"] == "lista") {
+if (isset($_GET["action"]) && $_GET["action"] == "lista") {
     
-//     echo leer(); 
-// };
+    echo leer(); 
+};
 
 
 
