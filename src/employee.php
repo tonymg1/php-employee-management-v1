@@ -47,8 +47,8 @@
             <label for="validationCustom04" class="form-label">Gender</label>
             <select class="form-select" id="validationCustom04" required>
                 <option selected disabled value="">Choose...</option>
-                <option>Male</option>
-                <option>Female</option>
+                <option>Man</option>
+                <option>Woman</option>
             </select>
             <div class="invalid-feedback">
                 Please select a valid state.
