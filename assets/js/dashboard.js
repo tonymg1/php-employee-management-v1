@@ -157,14 +157,53 @@ stay.addEventListener('click', function(){
 //         .catch((err) => console.log("Request failed: ", err));
 // }
 
-
+// borrar aki sale
 function remove_tr(This){
 
     if(This.closest('tbody').childElementCount == 1){
         alert("sin permiso")
 
     }else{
-
+        alert("Are you sure?")
+        fetch("./library/employeeController.php?action=addEmployee", {
+            method: "DELETE",
+            Headers: {
+                        'Content-type': 'application/json'
+            },
+        })
+        //     .then(response => {
+//         if (response.ok) {
+//             console.log("DELETE request successful")
+//         }else{
+//             console.log("DELETE request unsuccessful")
+//         } 
+//         return response
+//     })
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                renderAllEmployees(data);
+            })
         This.closest('tr').remove()
+
+
+
+//     .then(response => console.log(res))
+
+
+
+
+
     }
 }
+//¡esto no me sale
+// function remove_tr(This){
+//     $employees = json_decode(file_get_contents('../resouces/employees.json'))
+//     for ($i = 0 ; $i < count($employees); $i++){
+//         if(strval($employees[$i]['id']) === $i){
+//             unset ($employees[$i]);
+//         }
+//     }
+//     file_put_contents('../resouces/employees.json', json_encode($employees));
+//     json_encode($employees);
+// }
