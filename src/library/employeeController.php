@@ -26,5 +26,12 @@ if (isset($_GET["action"])) {
         addNewEmployee($createdEmployee);
 
     } 
+        //  else if ($_GET["action"] == "deleteEmployee") { 
+    //     $deleteEmployee = 
+    //     if(strval($employees[$i]['id']) === $i){
+    //                     unset ($employees[$i]);
+    //                 }
+
+    // }
 }
 

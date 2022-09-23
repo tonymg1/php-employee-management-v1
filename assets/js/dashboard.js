@@ -133,10 +133,10 @@ function loadEmployee(id){
     
 }
 
-let stay = document.getElementById('stay');
-stay.addEventListener('click', function(){
-    alert('hola')
-})
+// let stay = document.getElementById('stay');
+// stay.addEventListener('click', function(){
+//     alert('hola')
+// })
 
 // function sendDataToPHP(e) {
 //     e.preventDefault();
@@ -157,15 +157,15 @@ stay.addEventListener('click', function(){
 //         .catch((err) => console.log("Request failed: ", err));
 // }
 
-// borrar aki sale
+// borrar aki 
 function remove_tr(This){
 
-    if(This.closest('tbody').childElementCount == 1){
+    if(This.closest('tbody').childElementCount === 1){
         alert("sin permiso")
 
     }else{
         alert("Are you sure?")
-        fetch("./library/employeeController.php/id", {
+        fetch("./library/employeeController.php", {
             method: "DELETE",
             Headers: {
                         'Content-type': 'application/json'
@@ -188,7 +188,7 @@ function remove_tr(This){
 
 
 
-//     .then(response => console.log(res))
+    .then(responses => console.log(response))
 
 
 
