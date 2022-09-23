@@ -121,7 +121,7 @@ function renderAllEmployees(data){
             <td>${employee.state}</td>
             <td>${employee.postalCode}</td>
             <td>${employee.phoneNumber}</td>
-            <td scope="col" title="Remove employee"><button onclick="remove_tr(this)" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></button></td>
+            <td id="stay" scope="col" title="Remove employee"><button onclick="remove_tr(this)" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></button></td>
         `
         tableBody.appendChild(tableRow); 
     });
@@ -133,6 +133,10 @@ function loadEmployee(id){
     
 }
 
+let stay = document.getElementById('stay');
+stay.addEventListener('click', function(){
+    alert('hola')
+})
 
 // function sendDataToPHP(e) {
 //     e.preventDefault();
@@ -160,7 +164,7 @@ function remove_tr(This){
         alert("sin permiso")
 
     }else{
-        window.location.href ='./dashboard.php';
+
         This.closest('tr').remove()
     }
 }

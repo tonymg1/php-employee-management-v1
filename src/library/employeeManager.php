@@ -141,7 +141,7 @@ function getEmployee($id){ //(string $id)
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="button" class="btn btn-secondary">Return</button>
+                        <input class="btn btn-primary" type="button" value="Return" onclick="history.go(-1)">
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
