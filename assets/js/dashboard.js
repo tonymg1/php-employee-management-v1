@@ -7,8 +7,9 @@
 // el dashboard tendrá varios eventListeners (create, read, update, delete).
 
 var URLactual = window.location.href;
+alert(URLactual)
 
-if(URLactual == "dashboard.php"){
+if(URLactual == "http://localhost/proyectosAssembler/4/php-employee-management-v1/src/dashboard.php"){
     var dash = document.getElementById('dash');
     dash.style.fontWeight = "bold";
 }else {
