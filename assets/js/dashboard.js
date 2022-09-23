@@ -121,15 +121,16 @@ function renderAllEmployees(data){
             <td>${employee.state}</td>
             <td>${employee.postalCode}</td>
             <td>${employee.phoneNumber}</td>
-            <td scope="col" title="Remove employee"><a href="" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></a></td>
+            <td scope="col" title="Remove employee"><button onclick="remove_tr(this)" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></button></td>
         `
-        tableBody.appendChild(tableRow);
+        tableBody.appendChild(tableRow); 
     });
 }
 
 function loadEmployee(id){
     // window.location.href = `./library/employeeController.php?id=${id}`;
     window.location.href = `./employee.php?id=${id}`;
+    
 }
 
 
@@ -151,3 +152,15 @@ function loadEmployee(id){
 //         })
 //         .catch((err) => console.log("Request failed: ", err));
 // }
+
+
+function remove_tr(This){
+
+    if(This.closest('tbody').childElementCount == 1){
+        alert("sin permiso")
+
+    }else{
+        window.location.href ='./dashboard.php';
+        This.closest('tr').remove()
+    }
+}
