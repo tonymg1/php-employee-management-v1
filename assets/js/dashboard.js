@@ -165,24 +165,24 @@ function remove_tr(This){
 
     }else{
         alert("Are you sure?")
-        fetch("./library/employeeController.php?action=addEmployee", {
+        fetch("./library/employeeController.php/id", {
             method: "DELETE",
             Headers: {
                         'Content-type': 'application/json'
             },
         })
-        //     .then(response => {
-//         if (response.ok) {
-//             console.log("DELETE request successful")
-//         }else{
-//             console.log("DELETE request unsuccessful")
-//         } 
-//         return response
-//     })
+            .then(response => {
+            if (response.ok) {
+            console.log("DELETE request successful")
+            }else{
+            console.log("DELETE request unsuccessful")
+            } 
+            return response
+        })
             .then(response => response.json())
             .then(data => {
-                // console.log(data);
-                renderAllEmployees(data);
+                console.log(data);
+                // renderAllEmployees(data);
             })
         This.closest('tr').remove()
 
