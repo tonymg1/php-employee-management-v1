@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    <h1> hola </h1>
     <?php require_once "../assets/html/header.html" ?>
 
     <table class="table table-striped table-hover">
