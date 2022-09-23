@@ -165,7 +165,7 @@ function remove_tr(This){
 
     }else{
         alert("Are you sure?")
-        fetch("./library/employeeController.php", {
+        fetch("./library/employeeController.php?action=deleteEmployee", {
             method: "DELETE",
             Headers: {
                         'Content-type': 'application/json'
@@ -182,13 +182,9 @@ function remove_tr(This){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                // renderAllEmployees(data);
             })
         This.closest('tr').remove()
 
-
-
-    .then(responses => console.log(response))
 
 
 
