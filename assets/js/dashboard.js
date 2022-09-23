@@ -8,7 +8,7 @@
 
 var URLactual = window.location.href;
 
-if(URLactual == "http://localhost/proyectosAssembler/4/php-employee-management-v1/src/dashboard.php"){
+if(URLactual == "dashboard.php"){
     var dash = document.getElementById('dash');
     dash.style.fontWeight = "bold";
 }else {
