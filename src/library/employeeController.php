@@ -26,16 +26,9 @@ if (isset($_GET["action"])) {
         addNewEmployee($createdEmployee);
 
     } 
-        else if ($_GET["action"] == "deleteEmployee") { 
-            // function remove_tr(This){
-//     $employees = json_decode(file_get_contents('../resouces/employees.json'))
-//     for ($i = 0 ; $i < count($employees); $i++){
-//         if(strval($employees[$i]['id']) === $i){
-//             unset ($employees[$i]);
-//         }
-//     }
-
-
+        else if (isset($_GET["action"]) && $_GET['action'] === "deleteEmployee") { 
+            $employeeDelete = $_GET['id'];
+            deleteEmployee($employeeDelete);
     }
 }
 

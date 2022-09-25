@@ -157,8 +157,33 @@ function loadEmployee(id){
 //         .catch((err) => console.log("Request failed: ", err));
 // }
 
-// borrar aki 
-function remove_tr(This){
+
+
+
+function confirmDelete(This) {
+    bodyModalDelete.innerHTML = `
+        <p>You are about to delete an employee.</p>
+        <p>Please, confirm this action.</p>
+        <div class="btns-delete">
+            <button class="btn btn-warning" onclick="deleteEmployee(${idNum})" data-bs-dismiss="modal" aria-label="Close">Confirm</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+        </div>`
+}
+function closeWarningDelete(){
+    alertDelete.className = '';
+    alertDelete.innerHTML = '';
+}
+
+function remove_tr(This) {
+    fetch (`../src/library/employeeController.php?action=delete&id=${idNum}`)
+        .then(res => res.json())
+        .then(data => {
+            alertDelete.className = '';
+            alertDelete.innerHTML = '';
+            listJs(data)   
+        })
+}
+// function remove_tr(This){
 
     if(This.closest('tbody').childElementCount === 1){
         alert("sin permiso")
@@ -191,15 +216,4 @@ function remove_tr(This){
 
 
     }
-}
-//¡esto no me sale
-// function remove_tr(This){
-//     $employees = json_decode(file_get_contents('../resouces/employees.json'))
-//     for ($i = 0 ; $i < count($employees); $i++){
-//         if(strval($employees[$i]['id']) === $i){
-//             unset ($employees[$i]);
-//         }
-//     }
-//     file_put_contents('../resouces/employees.json', json_encode($employees));
-//     json_encode($employees);
-// }
+//}

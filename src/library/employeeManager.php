@@ -152,10 +152,18 @@ function getEmployee($id){ //(string $id)
     }
 }
 
-// function deleteEmployee(string $id)
-// {
-// // TODO implement it
-// }
+function deleteEmployee(string $id){
+    $employees = json_decode(file_get_contents('../../resources/employees.json'), true);
+    for($i = 0; $i < count($employees); $i++){
+        if(strval($employees[$i]['id']) === $id) {
+            $employeePos = array_search($employees[$i], $employees);
+            array_splice($employees, $employeePos, 1);
+        }
+    }
+    file_put_contents('../../resources/employees.json', json_encode($employees));
+
+    echo json_encode($employees);
+}
 
 
 // function updateEmployee(array $updateEmployee)
