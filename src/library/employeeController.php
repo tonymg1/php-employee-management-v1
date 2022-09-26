@@ -25,9 +25,16 @@ if (isset($_GET["action"])) {
 
         addNewEmployee($createdEmployee);
 
+<<<<<<< HEAD
     } else if ($_GET["action"] == "deleteEmployee") {
         $userId = $_GET["id"];
         deleteEmployee($userId);
+=======
+    } 
+        else if (isset($_GET["action"]) && $_GET['action'] === "deleteEmployee") { 
+            $employeeDelete = $_GET['id'];
+            deleteEmployee($employeeDelete);
+>>>>>>> f9f613d350168df8001b6e169afba35f82617b78
     }
 }
 
