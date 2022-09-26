@@ -152,10 +152,25 @@ function getEmployee($id){ //(string $id)
     }
 }
 
-// function deleteEmployee(string $id)
-// {
-// // TODO implement it
-// }
+function deleteEmployee(string $id)
+{
+    $employeesJson = file_get_contents('../../resources/employees.json');
+    $employeesDecodedJson = json_decode($employeesJson, true);
+
+    $i = 0;
+    foreach($employeesDecodedJson as $employee) {
+        if ($employee["id"] == $id) {
+            unset($employeesDecodedJson[$i]);
+            break;
+        }
+        $i++;
+    }
+
+    $employeeEncodedJson = json_encode($employeesDecodedJson);
+    // file_put_contents("../../resources/employees.json", $employeeEncodedJson); SE GUARDA CON LAS CLAVES (COMO UN OBJETO)
+
+    echo $employeeEncodedJson;
+}
 
 
 // function updateEmployee(array $updateEmployee)

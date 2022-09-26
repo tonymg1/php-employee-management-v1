@@ -1,4 +1,4 @@
-// tenemos que usarlo para hacer la parte del dashboard.
+// tenemos que usarlo para hacer la parte del dashboard. 
 // este js se encargará de hacer los fetch al empoloyeeController.php.
 
 // let loginForm = document.getElementById("login-form");
@@ -6,26 +6,57 @@
 // loginForm.addEventListener("submit", sendDataToPHP);
 // el dashboard tendrá varios eventListeners (create, read, update, delete).
 
-var URLactual = window.location.href;
-
-
-if(URLactual == "http://localhost/proyectosAssembler/4/php-employee-management-v1/src/dashboard.php"){
-    var dash = document.getElementById('dash');
-    dash.style.fontWeight = "bold";
-}else {
-    var emp = document.getElementById('emp');
-    emp.style.fontWeight = "bold";
-}
-
-
 loadAllEmployees();
 
-function loadAllEmployees(){
-    fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
+
+function loadAllEmployees() {
+    fetch("library/employeeController.php?action=listEmployees", { method: "GET" })
         .then(response => response.json())
         .then(data => {
             renderAllEmployees(data);
         });
+}
+
+function renderAllEmployees(data){
+    const tableBody = document.querySelector("tbody");
+
+    tableBody.innerHTML = '';
+
+    data.forEach((employee) => {
+        let tableRow = document.createElement("tr");
+    
+        [employee.id, employee.name, employee.email, employee.age, employee.streetAddress, employee.city, employee.state, employee.postalCode, employee.phoneNumber].forEach(e => {
+            const td = document.createElement('td');
+            td.innerHTML = e;
+            td.addEventListener("click", function(e) {
+                e.preventDefault();
+                navigateToEmployee(employee.id);
+            })
+            tableRow.appendChild(td);
+        });
+            
+        const buttonRemove = document.createElement("td");
+        buttonRemove.innerHTML = '<a href=""><i class="bi bi-trash3-fill buttonRemove"></i></a>';
+        buttonRemove.addEventListener("click", function(e) {
+            e.preventDefault();
+            deleteEmployee(employee.id);
+        });
+
+        tableRow.appendChild(buttonRemove);
+
+        tableBody.appendChild(tableRow);
+    });
+}
+
+function navigateToEmployee(userId){
+    window.location.href = './employee.php?' + userId + '';
+}  
+
+
+function deleteEmployee(userId){
+    if (confirm("Are you sure?")) {
+        fetch(`library/employeeController.php?action=deleteEmployee&id=${userId}`, { method: "DELETE" }).then(response => response.json());
+    }
 }
 
 const addEmployeeForm = document.querySelector("#add-employee-form");
@@ -98,40 +129,6 @@ function addNewEmployee() {
     //renderAllEmployees(data);
 }
 
-function renderAllEmployees(data){
-    console.log(data);
-
-    const tableBody = document.querySelector("tbody");
-
-    tableBody.innerHTML = "";
-
-    data.forEach((employee) => {
-        console.log(employee.name);
-
-        const tableRow = document.createElement("tr");
-        tableRow.addEventListener("click", ()=> loadEmployee(employee.id)); // ()=> para que no se dispare automáticamente.
-
-        tableRow.innerHTML = `
-            <th scope="row">${employee.id}</th>
-            <td>${employee.name}</td>
-            <td>${employee.email}</td>
-            <td>${employee.age}</td>
-            <td>${employee.streetAddress}</td>
-            <td>${employee.city}</td>
-            <td>${employee.state}</td>
-            <td>${employee.postalCode}</td>
-            <td>${employee.phoneNumber}</td>
-            <td id="stay" scope="col" title="Remove employee"><button onclick="remove_tr(this)" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></button></td>
-        `
-        tableBody.appendChild(tableRow); 
-    });
-}
-
-function loadEmployee(id){
-    // window.location.href = `./library/employeeController.php?id=${id}`;
-    window.location.href = `./employee.php?id=${id}`;
-    
-}
 
 // let stay = document.getElementById('stay');
 // stay.addEventListener('click', function(){
