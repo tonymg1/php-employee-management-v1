@@ -166,8 +166,10 @@ function deleteEmployee(string $id)
         $i++;
     }
 
+    // SE GUARDA CON LAS CLAVES (COMO UN OBJETO)
+
     $employeeEncodedJson = json_encode($employeesDecodedJson);
-    // file_put_contents("../../resources/employees.json", $employeeEncodedJson); SE GUARDA CON LAS CLAVES (COMO UN OBJETO)
+    file_put_contents("../../resources/employees.json", $employeeEncodedJson);
 
     echo $employeeEncodedJson;
 }
