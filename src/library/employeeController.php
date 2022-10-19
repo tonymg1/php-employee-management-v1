@@ -1,17 +1,17 @@
 <?php
 
-require_once "./employeeManager.php"; // la ruta tiene que iniciar en dashboard.
+require_once "./employeeManager.php";
 
 if (isset($_GET["action"])) {
 
     if ($_GET["action"] == "listEmployees") {
 
-        echo loadAllEmployees(); // file_get_contents('../../resources/employees.json')
+        echo loadAllEmployees(); 
 
     } else if ($_GET["action"] == "addEmployee") { 
 
         $createdEmployee = [
-            "name" => $_POST["employee-name"], // es el name del input del form del modal de add employee.
+            "name" => $_POST["employee-name"],
             "lastName" => $_POST["employee-last-name"],
             "email" => $_POST["employee-email"],
             "city" => $_POST["employee-city"],
@@ -30,7 +30,7 @@ if (isset($_GET["id"])) {
 
     $updateEmployee = [
         "id" => $id,
-        "name" => $_POST["employee-name"], // es el name del input del form de employee.php
+        "name" => $_POST["employee-name"], 
         "lastName" => $_POST["employee-last-name"],
         "email" => $_POST["employee-email"],
         "gender" => $_POST["employee-gender"], 
@@ -41,10 +41,6 @@ if (isset($_GET["id"])) {
         "postalCode" => $_POST["employee-postal-code"],
         "phoneNumber" => $_POST["employee-phone-number"]
     ];
-
-    // echo "<pre>";
-    // print_r($updateEmployee);
-    // echo "</pre>";
 
     updateEmployee($updateEmployee); 
 }

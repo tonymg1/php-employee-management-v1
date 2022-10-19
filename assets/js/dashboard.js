@@ -34,8 +34,6 @@ addEmployeeForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let newEmployeeData = new FormData(addEmployeeForm);
-    // console.log(newEmployeeData);
-    // console.log(newEmployeeData.get("employee-name"));
 
     fetch("./library/employeeController.php?action=addEmployee", {
         method: "POST",
@@ -76,26 +74,6 @@ function addNewEmployee() {
     };
 
     console.log(createdEmployee);
-
-    // fetch("./library/employeeController.php?action=listEmployees", { method: "GET" })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         data.push(createdEmployee);
-    //         console.log(data);
-    //     });
-
-    // fetch("./library/employeeController.php?action=addEmployee", {
-    //     method: "POST",
-    //     body: createdEmployee
-    // })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         data.push(createdEmployee);
-    //         console.log(data);
-    //     });
-
-    //antes de llamar a la función se tiene que añadir el nuevo objeto al json.
-    //renderAllEmployees(data);
 }
 
 function renderAllEmployees(data){
@@ -127,26 +105,5 @@ function renderAllEmployees(data){
 }
 
 function loadEmployee(id){
-    // window.location.href = `./library/employeeController.php?id=${id}`;
     window.location.href = `./employee.php?id=${id}`;
 }
-
-
-// function sendDataToPHP(e) {
-//     e.preventDefault();
-
-//     const formData = new FormData(loginForm);
-//     console.log(formData);
-
-//     fetch("../../src/library/employeeController.php?action=listemployees", {
-//         method: "GET",
-//     })
-//         .then((response) => response.json())
-//         .then((data) => {
-            // if (data.status === "success") {
-            //     alert("yes");
-            // }
-//             console.log(data);
-//         })
-//         .catch((err) => console.log("Request failed: ", err));
-// }

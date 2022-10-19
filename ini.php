@@ -90,7 +90,6 @@
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
 
             <?php
-                #require_once "./src/library/loginController.php"; //manager o controller??
                 if (isset($_GET["action"]) && $_GET["action"] == "loginError") {
                     ?>
                     <div class="alert alert-danger incorrect-credentials-alert" role="alert">

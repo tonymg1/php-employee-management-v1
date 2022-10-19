@@ -1,37 +1,15 @@
 <?php
 
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
-
-
-// session_start();
-
 function loadAllEmployees(){
     $employeesJson = file_get_contents('../../resources/employees.json');
     return $employeesJson;
 }
 
 
-function addNewEmployee($createdEmployee){ // function addEmployee(array $createdEmployee)
+function addNewEmployee($createdEmployee) {
 
     $employeesJson = file_get_contents('../../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
-
-    // foreach ($employeesDecodedJson as $employee) {
-    //     $employeeName = $employee["name"];
-    //     $employeeLastName = $employee["lastName"];
-    //     $employeeEmail = $employee["email"];
-    // }
-
-    // if ($createdEmployee["email"] != $employeeEmail {
-        // if ($createdEmployee["name"] != $employeeName && $createdEmployee["lastName"] != $employeeLastName){
-
-        // }
-    // }
 
     $createdEmployee["id"] = end($employeesDecodedJson)["id"] + 1;
 
@@ -41,27 +19,19 @@ function addNewEmployee($createdEmployee){ // function addEmployee(array $create
     file_put_contents("../../resources/employees.json", $employeeEncodedJson);
 
     echo $employeeEncodedJson;
-    
-    // $employeeEmail = $_POST["employee-email"];
-    // return json_encode("Employee email: " . $employeeEmail); //enviar respuesta en formato json.
 }
 
 
-function getEmployee($id){ // (string $id)
-    #echo $id;
+function getEmployee($id) {
 
-    // $employeesJson = file_get_contents('../../resources/employees.json');
     $employeesJson = file_get_contents('../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
 
     foreach ($employeesDecodedJson as $employee) {
 
-        $employeeId = $employee["id"]; // the value of this variable changes with each loop through the json id's.
-        // echo $employeeId;
+        $employeeId = $employee["id"];
 
-        if ($id == $employeeId) { # $id = $_GET["action"];
-            // echo $id, " es igual a ", $employeeId;
-            // echo $employee["name"];
+        if ($id == $employeeId) {
 
             ?>
             <form method="post" action="./library/employeeController.php?id=<?php echo $employee["id"] ?>" class="row g-3 needs-validation" novalidate>
@@ -149,14 +119,10 @@ function updateEmployee(array $updateEmployee){
 
     $employeesJson = file_get_contents('../../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
-    // echo "<pre>";
-    // print_r($employeesDecodedJson);
-    // echo "</pre>";
 
     for ($i=0; $i < count($employeesDecodedJson); $i++) {
 
         if ($employeesDecodedJson[$i]["id"] == $updateEmployee["id"]) {
-            // echo $employeesDecodedJson[$i]["id"], " es igual a ", $updateEmployee["id"];
             $employeesDecodedJson[$i] = $updateEmployee;
         }
     }
@@ -166,25 +132,3 @@ function updateEmployee(array $updateEmployee){
 
     header("Location: ../dashboard.php");
 }
-
-
-// function deleteEmployee(string $id)
-// {
-// // TODO implement it
-// }
-
-// // function removeAvatar($id)
-// // {
-// // // TODO implement it
-// // }
-
-
-// function getQueryStringParameters(): array
-// {
-// // TODO implement it
-// }
-
-// function getNextIdentifier(array $employeesCollection): int
-// {
-// // TODO implement it
-// }
